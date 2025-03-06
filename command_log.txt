@@ -1,0 +1,114 @@
+ 2047  conda create -n nerfstudio python=3.8 -y
+ 2049  conda activate nerfstudio
+ 2050  pip install --upgrade pip
+ 2051  sudo apt update && sudo apt install ffmpeg libgl1 libosmesa6 -y
+ 2054  pip install torch==2.1.2+cu118 torchvision==0.16.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
+ 2055  conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
+ 2059  pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+ 2060  pip install nerfstudio
+ 2061  # Download some test data:
+ 2062  ns-download-data nerfstudio --capture-name=poster
+ 2063  # Train model
+ 2064  ns-train nerfacto --data data/nerfstudio/poster
+ 2065  conda create --name nerfstudio_base --clone nerfstudio
+ 2100  ns-train nerfacto --data data/nerfstudio/Egypt/
+ 2101  ns-train nerfacto --data data/nerfstudio/poster/
+ 2105  git clone https://github.com/leggedrobotics/radiance_field_ros.git
+ 2106  rosdep
+ 2109  rosdep update
+ 2110  rosdep install --from-paths src --ignore-src -r -y
+ 2112  cd radiance_field_ros/
+ 2113  pip install -e .
+ 2123  dir
+ 2124  cd ..
+ 2125  catkin build radiancce_field_ros/nerf_teleoperation
+ 2126  catkin build radiance_field_ros/nerf_teleoperation
+ 2127  catkin build radiance_field_ros
+ 2128  mv ~/catkin_ws/radiance_field_ros ~/catkin_ws/src/
+ 2129  ls ~/catkin_ws/src/
+ 2130  cd ~/catkin_ws
+ 2131  catkin build
+ 2132  sudo apt update
+ 2133  sudo apt install ros-noetic-jsk-rviz-plugins
+ 2134  catkin clean nerf_view_controller
+ 2135  catkin clean
+ 2136  catkin build
+ 2137  source ~/catkin_ws/devel/setup.bash
+ 2138  rospack list | grep nerf
+ 2139  roscore
+ 2140  ns-train nerfacto --data data/nerfstudio/poster/
+ 2141  ns-train nerfacto --data data/nerfstudio/poster/pip list | grep ros_nerf
+ 2142  pip list | grep ros_nerf
+ 2143  cd ~/catkin_ws/src/radiance_field_ros/ros_nerf
+ 2144  pip install -e .
+ 2145  echo $PYTHONPATH
+ 2146  echo 'export PYTHONPATH=$PYTHONPATH:~/catkin_ws/devel/lib/python3/dist-packages' >> ~/.bashrc
+ 2147  source ~/.bashrc
+ 2148  conda activate nerfstudio
+ 2149  source ~/catkin_ws/devel/setup.bash
+ 2150  ns-train nerfacto --data data/nerfstudio/poster/
+ 2151  pip uninstall ros_nerf -y
+ 2152  pip install -e ~/catkin_ws/src/radiance_field_ros/ros_nerf
+ 2153  echo $PYTHONPATH
+ 2154  export PYTHONPATH=$PYTHONPATH:/home/rysch01/catkin_ws/src/radiance_field_ros/ros_nerf
+ 2155  echo 'export PYTHONPATH=$PYTHONPATH:/home/rysch01/catkin_ws/src/radiance_field_ros/ros_nerf' >> ~/.bashrc
+ 2156  source ~/.bashrc
+ 2157  source ~/catkin_ws/devel/setup.bash
+ 2158  python -c "import ros_nerf; print('ros_nerf imported successfully')"
+ 2159  conda activate nerfstudio
+ 2160  python -c "import ros_nerf; print('ros_nerf imported successfully')"
+ 2161  which python
+ 2162  pip uninstall ros_nerf -y
+ 2163  pip install -e ~/catkin_ws/src/radiance_field_ros/ros_nerf
+ 2164  python -c "import ros_nerf; print('ros_nerf imported successfully')"
+ 2165  echo $PYTHONPATH
+ 2166  export PYTHONPATH=$PYTHONPATH:/home/rysch01/catkin_ws/src/radiance_field_ros/ros_nerf
+ 2167  echo 'export PYTHONPATH=$PYTHONPATH:/home/rysch01/catkin_ws/src/radiance_field_ros/ros_nerf' >> ~/.bashrc
+ 2168  source ~/.bashrc
+ 2169  python -c "import ros_nerf; print('ros_nerf imported successfully')"
+ 2170  conda activate nerfstudio
+ 2171  python -c "import ros_nerf; print('ros_nerf imported successfully')"
+ 2172  pip uninstall ros_nerf -y
+ 2173  cd ~/catkin_ws/src/radiance_field_ros/ros_nerf
+ 2174  ls
+ 2175  cd ..
+ 2176  dir
+ 2177  cd nerf_teleoperation
+ 2178  ls
+ 2179  cd ..
+ 2180  dir
+ 2181  cd nerf_view_controller/
+ 2182  ls
+ 2183  cd ~/catkin_ws/src/radiance_field_ros/ros_nerf
+ 2184  nano setup.py
+ 2185  ls
+ 2186  pip install -e .
+ 2187  cd ..
+ 2188  dir
+ 2189  pip install -e .
+ 2190  cd ros_nerf
+ 2191  dir
+ 2192  rm setup.py 
+ 2193  cd ..
+ 2194  dor
+ 2195  dir
+ 2196  pip install -e .
+ 2197  pip install .
+ 2198  pip list | grep ros_nerf
+ 2199  python -c "import ros_nerf; print('ros_nerf imported successfully')"
+ 2200  ns-train nerfacto --data data/nerfstudio/poster/
+ 2201  ns-train nerfacto --data ../../data/nerfstudio/poster/
+ 2202  roscore
+ 2203  ns-train nerfacto --data ../../data/nerfstudio/Egypt/
+ 2204  conda create --name nerfstudio_teleop
+ 2205  conda create --name nerfstudio_teleop --clone nerfstudio
+ 2206  ns-train nerfacto --data ../../data/nerfstudio/Egypt/
+ 2207  ns-train nerfacto --data ../../data/nerfstudio/poster/
+ 2208  conda env list
+ 2209  roscore
+ 2210  ns-train nerfacto --data ../../data/nerfstudio/poster/
+ 2211  conda create --name nerfstudio_teleop_temp --clone nerfstudio
+ 2212  conda deactivate
+ 2213  conda activate nerfstudio_teleop_temp
+ 2214  ns-train nerfacto --data ../../data/nerfstudio/poster/
+ 2215  history > command_log.txtip install nerfstudio
